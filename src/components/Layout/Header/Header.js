@@ -4,22 +4,23 @@ import Signin from "../../auth/signin";
 import Navigation from "./Navigation";
 import { useSelector } from 'react-redux';
 import AddPatient from '../../patients/AddPatient';
-const Header=(req,res)=>{
+import { patient } from '../../../middleware/patient';
+const Header=()=>{
     const logged = useSelector((state) => state.loggedIn);
     const [show, setShow] = useState(false);
-
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-   
+    console.log(patient());
+    
     return(<>
           <Navigation handleShow={handleShow}  />   
           {logged?"":<Signin show={show} handleClose={handleClose} />
            }
 
-           {logged?<UserCard show={show} handleClose={handleClose} />
+           {logged&&!patient()?<UserCard show={show} handleClose={handleClose} />
             :""}
 
-           {logged?<AddPatient show={show} handleClose={handleClose} /> :""}
+           {logged&&patient()?<AddPatient show={show} handleShow={handleShow} handleClose={handleClose} /> :""}
           </>)
 }
 export default Header;

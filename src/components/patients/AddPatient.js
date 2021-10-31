@@ -1,6 +1,7 @@
 import { Modal,Button, Form, } from "react-bootstrap";
+import { patient } from '../../middleware/patient';
 
-const AddPatient=({show,handleClose})=>{
+const AddPatient=({show,handleShow,handleClose})=>{
 
   function handleChange(){
 
@@ -8,7 +9,12 @@ const AddPatient=({show,handleClose})=>{
 
   function handleSubmit(){
 
+
   }   
+
+  if(patient()){
+    handleShow();
+    }
     return(<>
        <Modal show={show} onHide={handleClose} className="login-container"  backdrop="static"
         keyboard={false} centered>

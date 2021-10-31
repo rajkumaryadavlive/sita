@@ -19,13 +19,19 @@ const Navigation=({handleShow})=>{
             /></Link>
            
             </Navbar.Brand>
-            
+            {logged?
             <Nav className="justify-content-center navbar-center-manu">
-            <Nav><Link to="/doctors" className="nav-link">DOCTORS</Link></Nav>
-            <Nav.Link href="#features">PHARMACY</Nav.Link>
+            <Nav><Link to="/doctors" className="nav-link">APPOINTMENT</Link></Nav>
+            <Nav.Link href="#features">HEALTH RECORD</Nav.Link>
             <Nav.Link href="#features">LAB TESTS</Nav.Link>
             <Nav.Link href="#pricing">COVID-19</Nav.Link>
-            </Nav>
+            </Nav>: 
+              <Nav className="justify-content-center navbar-center-manu">
+              <Nav><Link to="/doctors" className="nav-link">DOCTORS</Link></Nav>
+              <Nav.Link href="#features">PHARMACY</Nav.Link>
+              <Nav.Link href="#features">LAB TESTS</Nav.Link>
+              <Nav.Link href="#pricing">COVID-19</Nav.Link>
+              </Nav>}
             <Nav className="justify-content-end nav-login">
               <Nav.Link href="#">
               <div class="jss23 ">
